@@ -23689,9 +23689,7 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 <pinref part="TP1" gate="G$1" pin="TP"/>
 <junction x="5.08" y="121.92"/>
 <wire x1="5.16475625" y1="121.92" x2="5.08" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="114.3" x2="-20.32" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="-20.32" y1="121.92" x2="-7.62" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="555" gate="A" pin="Q"/>
 <wire x1="-7.62" y1="121.92" x2="-5.08" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="121.92" x2="-7.62" y2="121.92" width="0.1524" layer="91"/>
 <junction x="-7.62" y="121.92"/>
@@ -23779,11 +23777,6 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 </net>
 <net name="TR/THR" class="0">
 <segment>
-<wire x1="-40.64" y1="114.3" x2="-63.5" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="-63.5" y1="114.3" x2="-63.5" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="114.3" x2="-63.5" y2="127" width="0.1524" layer="91"/>
-<junction x="-63.5" y="114.3"/>
 <wire x1="-63.5" y1="127" x2="-10.16" y2="127" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="127" x2="-10.16" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="106.68" x2="-20.32" y2="104.14" width="0.1524" layer="91"/>
@@ -23793,7 +23786,6 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 <label x="-55.88" y="114.3" size="1.778" layer="95"/>
 <pinref part="R11" gate="G$1" pin="S"/>
 <wire x1="5.08" y1="106.68" x2="-10.16" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="555" gate="A" pin="TR"/>
 <pinref part="555" gate="A" pin="THR"/>
 </segment>
 </net>

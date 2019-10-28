@@ -178,8 +178,6 @@
 <text x="9.862" y="111.718" size="1.27" layer="25">Blink Rate</text>
 <text x="7.287" y="86.841" size="2.54" layer="25" font="vector" ratio="13" rot="R90">SEM 2019</text>
 <text x="8.21" y="56.622" size="3.81" layer="25" rot="R90">REVolution</text>
-<text x="31.904" y="131.22" size="2.1844" layer="25">Right Turn </text>
-<text x="13.52" y="131.1" size="2.1844" layer="25">Left Turn </text>
 <text x="64.746" y="64.275" size="1.27" layer="25">GND</text>
 <text x="46.588" y="119.834" size="1.4224" layer="25">GND</text>
 <text x="51.244" y="53.044" size="2.1844" layer="25">ADD 1</text>
@@ -7163,9 +7161,7 @@ design rules under a new name.</description>
 </autorouter>
 <elements>
 <element name="ADD1" library="master_library" package="TO254P1054X240-3" package3d_urn="urn:adsk.eagle:package:8893803/1" value="NCV8405ADPAK-3PIN" x="56.654" y="68.958" smashed="yes" rot="R270"/>
-<element name="ADD1_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="55.604" y="52.08" smashed="yes" rot="R180"/>
 <element name="WIPER_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="35.64" y="51.84" smashed="yes" rot="R180"/>
-<element name="HAZR_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="38.684" y="133.71" smashed="yes"/>
 <element name="BRAKE_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="96.232" y="133.49" smashed="yes"/>
 <element name="HEADLIGHTS_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="57.044" y="133.69" smashed="yes"/>
 <element name="REARLIGHTS_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="75.35" y="133.69" smashed="yes"/>
@@ -7445,11 +7441,9 @@ design rules under a new name.</description>
 </elements>
 <signals>
 <signal name="VDD">
-<contactref element="HAZR_OUT" pad="RED"/>
 <contactref element="HEADLIGHTS_OUT" pad="RED"/>
 <contactref element="C10" pad="+"/>
 <contactref element="D1" pad="C"/>
-<contactref element="ADD1_OUT" pad="RED"/>
 <contactref element="LM2940" pad="1"/>
 <contactref element="TRACO" pad="1"/>
 <contactref element="WIPER_OUT" pad="RED"/>
@@ -7498,12 +7492,6 @@ design rules under a new name.</description>
 <wire x1="106" y1="114.1" x2="106" y2="126.952" width="1.27" layer="16"/>
 <wire x1="106" y1="126.952" x2="99.316" y2="133.636" width="1.27" layer="16"/>
 </signal>
-<signal name="N$17">
-<contactref element="ADD1" pad="3"/>
-<contactref element="ADD1_OUT" pad="BLACK"/>
-<wire x1="59.554" y1="59.18" x2="56.654" y2="62.08" width="1.27" layer="1"/>
-<wire x1="56.654" y1="62.08" x2="56.654" y2="66.773" width="1.27" layer="1"/>
-</signal>
 <signal name="N$19">
 <contactref element="WIPER_" pad="3"/>
 <contactref element="WIPER_OUT" pad="BLACK"/>
@@ -7517,14 +7505,14 @@ design rules under a new name.</description>
 </signal>
 <signal name="HAZ_L_SIG">
 <contactref element="LIGHTS" pad="P2"/>
-<wire x1="75.776" y1="136.176" x2="78.316" y2="133.636" width="0.8128" layer="16"/>
 <contactref element="HAZ_L" pad="3"/>
-<wire x1="46.01668125" y1="117.172" x2="38.628" y2="117.172" width="0.8128" layer="1"/>
-<via x="28.6" y="127.2" extent="1-16" drill="1"/>
-<wire x1="38.628" y1="117.172" x2="28.6" y2="127.2" width="0.8128" layer="1"/>
-<wire x1="28.6" y1="127.2" x2="28.6" y2="131.4" width="0.8128" layer="16"/>
-<wire x1="33.376" y1="136.176" x2="75.776" y2="136.176" width="0.8128" layer="16"/>
-<wire x1="28.6" y1="131.4" x2="33.376" y2="136.176" width="0.8128" layer="16"/>
+<via x="46.1" y="127.2" extent="1-16" drill="0.8128"/>
+<wire x1="46.1" y1="127.2" x2="46.1" y2="117.25531875" width="0.8128" layer="1"/>
+<wire x1="46.01668125" y1="117.172" x2="46.1" y2="117.25531875" width="0.8128" layer="1"/>
+<wire x1="46.1" y1="127.2" x2="46.1" y2="132.5" width="0.8128" layer="16"/>
+<wire x1="46.1" y1="132.5" x2="49.8" y2="136.2" width="0.8128" layer="16"/>
+<wire x1="49.8" y1="136.2" x2="75.752" y2="136.2" width="0.8128" layer="16"/>
+<wire x1="75.752" y1="136.2" x2="78.316" y2="133.636" width="0.8128" layer="16"/>
 </signal>
 <signal name="BRAKE_SIG">
 <contactref element="BRAKE" pad="3"/>
@@ -7723,16 +7711,14 @@ design rules under a new name.</description>
 <signal name="HAZ_R_SIG">
 <contactref element="LIGHTS" pad="P3"/>
 <contactref element="HAZ_R" pad="3"/>
-<contactref element="HAZR_OUT" pad="BLACK"/>
-<wire x1="38.254" y1="121.57" x2="57.278834375" y2="121.57" width="0.8128" layer="1"/>
-<wire x1="81.816" y1="133.636" x2="80.74" y2="132.56" width="0.8128" layer="16"/>
-<wire x1="80.74" y1="132.56" x2="80.37" y2="132.19" width="0.8128" layer="16"/>
-<wire x1="80.37" y1="132.19" x2="40.314" y2="132.19" width="0.8128" layer="16"/>
-<wire x1="40.314" y1="132.19" x2="34.734" y2="126.61" width="0.8128" layer="16"/>
-<wire x1="61.159009375" y1="117.352" x2="57.278834375" y2="121.57" width="0.8128" layer="1"/>
-<wire x1="62.951" y1="117.352" x2="61.159009375" y2="117.352" width="1.27" layer="1"/>
-<wire x1="34.734" y1="126.61" x2="34.734" y2="125.09" width="0.8128" layer="1"/>
-<wire x1="34.734" y1="125.09" x2="38.254" y2="121.57" width="0.8128" layer="1"/>
+<wire x1="62.951" y1="117.352" x2="59.648" y2="117.352" width="0.8128" layer="1"/>
+<wire x1="62.951" y1="117.352" x2="57.948" y2="117.352" width="0.8128" layer="1"/>
+<wire x1="57.948" y1="117.352" x2="48.2" y2="127.1" width="0.8128" layer="1"/>
+<wire x1="48.2" y1="127.1" x2="48.25" y2="127.15" width="0.8128" layer="1"/>
+<via x="48.25" y="127.15" extent="1-16" drill="0.8128"/>
+<wire x1="48.25" y1="127.15" x2="53.2" y2="132.1" width="0.8128" layer="16"/>
+<wire x1="53.2" y1="132.1" x2="80.28" y2="132.1" width="0.8128" layer="16"/>
+<wire x1="80.28" y1="132.1" x2="81.816" y2="133.636" width="0.8128" layer="16"/>
 </signal>
 <signal name="EXT_CLK">
 <contactref element="U$1" pad="P2"/>

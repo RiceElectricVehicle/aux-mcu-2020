@@ -22967,7 +22967,6 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 <part name="SUPPLY29" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="VDD" device=""/>
 <part name="SUPPLY30" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="HAZ_L" library="master_library" deviceset="NCV8405A" device="DPAK-3PIN" package3d_urn="urn:adsk.eagle:package:8893803/1"/>
-<part name="HAZL_OUT" library="powerpoles" deviceset="POWERPOLE_POWER" device="25A_HORIZONTAL_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2"/>
 <part name="SUPPLY31" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="VDD" device=""/>
 <part name="HAZ_R" library="master_library" deviceset="NCV8405A" device="DPAK-3PIN" package3d_urn="urn:adsk.eagle:package:8893803/1"/>
 <part name="HAZR_OUT" library="powerpoles" deviceset="POWERPOLE_POWER" device="25A_HORIZONTAL_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2"/>
@@ -23134,9 +23133,6 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 <instance part="SUPPLY30" gate="GND" x="20.32" y="13.285" smashed="yes"/>
 <instance part="HAZ_L" gate="G$1" x="48.26" y="27.94" smashed="yes">
 <attribute name="NAME" x="53.096034375" y="35.814" size="1.778" layer="95" font="vector" rot="SR0"/>
-</instance>
-<instance part="HAZL_OUT" gate="G$1" x="73.66" y="45.72" smashed="yes">
-<attribute name="NAME" x="68.453" y="53.594" size="1.778" layer="94" rot="SR0"/>
 </instance>
 <instance part="SUPPLY31" gate="G$1" x="63.5" y="63.5" smashed="yes"/>
 <instance part="HAZ_R" gate="G$1" x="86.36" y="27.94" smashed="yes">
@@ -23487,7 +23483,6 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 <net name="VDD" class="0">
 <segment>
 <pinref part="SUPPLY31" gate="G$1" pin="VDD"/>
-<pinref part="HAZL_OUT" gate="G$1" pin="V+"/>
 <wire x1="63.5" y1="50.8" x2="63.5" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -23580,13 +23575,14 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 </net>
 <net name="HAZ_L_SIG" class="0">
 <segment>
-<pinref part="HAZ_L" gate="G$1" pin="D"/>
-<pinref part="HAZL_OUT" gate="G$1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$2"/>
 <wire x1="221.765" y1="121.92" x2="224.305" y2="121.92" width="0.1524" layer="91"/>
 <label x="224.305" y="121.92" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="HAZ_L" gate="G$1" pin="D"/>
+<wire x1="63.5" y1="40.64" x2="63.5" y2="43.18" width="0.1524" layer="91"/>
+<label x="63.5" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BRAKE_SIG" class="0">

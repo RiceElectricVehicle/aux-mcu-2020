@@ -3,7 +3,7 @@
 <eagle version="9.5.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="6" altunitdist="mil" altunit="mm"/>
@@ -4104,7 +4104,7 @@
 <text x="72.397" y="104.22" size="1.016" layer="25">Off</text>
 <text x="91.5" y="134.82" size="0.6096" layer="26">GND</text>
 <text x="80.06" y="131.94" size="0.6096" layer="26">TURN_R</text>
-<text x="76.94" y="134.76" size="0.6096" layer="26">TURN_L</text>
+<text x="77.04" y="134.56" size="0.6096" layer="26">TURN_L</text>
 <text x="73.52" y="134.76" size="0.6096" layer="26">BRAKE</text>
 <text x="84.9" y="131.94" size="0.6096" layer="26">HL</text>
 <text x="88.4" y="134.8" size="0.6096" layer="26">RL</text>
@@ -7165,7 +7165,6 @@ design rules under a new name.</description>
 <element name="ADD1" library="master_library" package="TO254P1054X240-3" package3d_urn="urn:adsk.eagle:package:8893803/1" value="NCV8405ADPAK-3PIN" x="56.654" y="68.958" smashed="yes" rot="R270"/>
 <element name="ADD1_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="55.604" y="52.08" smashed="yes" rot="R180"/>
 <element name="WIPER_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="35.64" y="51.84" smashed="yes" rot="R180"/>
-<element name="HAZL_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="20.012" y="133.69" smashed="yes"/>
 <element name="HAZR_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="38.684" y="133.71" smashed="yes"/>
 <element name="BRAKE_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="96.232" y="133.49" smashed="yes"/>
 <element name="HEADLIGHTS_OUT" library="powerpoles" package="POWERPOLE_PAIR_25A_HORIZ_G2" value="POWERPOLE_POWER25A_HORIZONTAL_G2" x="57.044" y="133.69" smashed="yes"/>
@@ -7446,7 +7445,6 @@ design rules under a new name.</description>
 </elements>
 <signals>
 <signal name="VDD">
-<contactref element="HAZL_OUT" pad="RED"/>
 <contactref element="HAZR_OUT" pad="RED"/>
 <contactref element="HEADLIGHTS_OUT" pad="RED"/>
 <contactref element="C10" pad="+"/>
@@ -7518,15 +7516,15 @@ design rules under a new name.</description>
 <wire x1="36.185" y1="70.899" x2="35.685" y2="70.399" width="1.27" layer="1"/>
 </signal>
 <signal name="HAZ_L_SIG">
-<contactref element="HAZ_L" pad="3"/>
-<contactref element="HAZL_OUT" pad="BLACK"/>
 <contactref element="LIGHTS" pad="P2"/>
-<wire x1="76.776" y1="135.176" x2="24.648" y2="135.176" width="0.8128" layer="16"/>
-<wire x1="24.648" y1="135.176" x2="16.062" y2="126.59" width="0.8128" layer="16"/>
-<wire x1="78.316" y1="133.636" x2="76.776" y2="135.176" width="0.8128" layer="16"/>
-<wire x1="43.01668125" y1="120.172" x2="22.48" y2="120.172" width="1.016" layer="1"/>
-<wire x1="22.48" y1="120.172" x2="16.062" y2="126.59" width="1.016" layer="1"/>
-<wire x1="46.01668125" y1="117.172" x2="43.01668125" y2="120.172" width="1.016" layer="1"/>
+<wire x1="75.776" y1="136.176" x2="78.316" y2="133.636" width="0.8128" layer="16"/>
+<contactref element="HAZ_L" pad="3"/>
+<wire x1="46.01668125" y1="117.172" x2="38.628" y2="117.172" width="0.8128" layer="1"/>
+<via x="28.6" y="127.2" extent="1-16" drill="1"/>
+<wire x1="38.628" y1="117.172" x2="28.6" y2="127.2" width="0.8128" layer="1"/>
+<wire x1="28.6" y1="127.2" x2="28.6" y2="131.4" width="0.8128" layer="16"/>
+<wire x1="33.376" y1="136.176" x2="75.776" y2="136.176" width="0.8128" layer="16"/>
+<wire x1="28.6" y1="131.4" x2="33.376" y2="136.176" width="0.8128" layer="16"/>
 </signal>
 <signal name="BRAKE_SIG">
 <contactref element="BRAKE" pad="3"/>

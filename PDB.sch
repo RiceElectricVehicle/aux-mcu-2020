@@ -18860,83 +18860,6 @@ Source: VISHAY wscwsn.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="jumper" urn="urn:adsk.eagle:library:252">
-<description>&lt;b&gt;Jumpers&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="JP1" urn="urn:adsk.eagle:footprint:15398/1" library_version="1">
-<description>&lt;b&gt;JUMPER&lt;/b&gt;</description>
-<wire x1="-1.016" y1="0" x2="-1.27" y2="0.254" width="0.1524" layer="21"/>
-<wire x1="-1.016" y1="0" x2="-1.27" y2="-0.254" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="0" x2="1.27" y2="0.254" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="0" x2="1.27" y2="-0.254" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="-0.254" x2="1.27" y2="-2.286" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="-2.54" x2="1.27" y2="-2.286" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="2.286" x2="1.016" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="2.286" x2="1.27" y2="0.254" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="2.54" x2="-1.016" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="2.286" x2="-1.016" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="2.286" x2="-1.27" y2="0.254" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-0.254" x2="-1.27" y2="-2.286" width="0.1524" layer="21"/>
-<wire x1="-1.016" y1="-2.54" x2="-1.27" y2="-2.286" width="0.1524" layer="21"/>
-<wire x1="-1.016" y1="-2.54" x2="1.016" y2="-2.54" width="0.1524" layer="21"/>
-<pad name="1" x="0" y="-1.27" drill="0.9144" shape="long"/>
-<pad name="2" x="0" y="1.27" drill="0.9144" shape="long"/>
-<text x="-1.651" y="-2.54" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="2.921" y="-2.54" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-<rectangle x1="-0.3048" y1="0.9652" x2="0.3048" y2="1.5748" layer="51"/>
-<rectangle x1="-0.3048" y1="-1.5748" x2="0.3048" y2="-0.9652" layer="51"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="JP1" urn="urn:adsk.eagle:package:15455/1" type="box" library_version="1">
-<description>JUMPER</description>
-<packageinstances>
-<packageinstance name="JP1"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="J1" urn="urn:adsk.eagle:symbol:15406/1" library_version="1">
-<wire x1="0" y1="2.54" x2="0" y2="3.81" width="0.4064" layer="94"/>
-<wire x1="0" y1="3.81" x2="0" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="0" y2="-3.81" width="0.4064" layer="94"/>
-<wire x1="0" y1="-3.81" x2="0" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="-1.905" y1="5.08" x2="1.905" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="1.905" y1="5.08" x2="1.905" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="1.905" y1="-5.08" x2="-1.905" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="-1.905" y1="-5.08" x2="-1.905" y2="5.08" width="0.4064" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="4.445" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="1" x="0" y="-7.62" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="2" x="0" y="7.62" visible="pad" length="short" direction="pas" rot="R270"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="JP1Q" urn="urn:adsk.eagle:component:15488/2" prefix="JP" uservalue="yes" library_version="2">
-<description>&lt;b&gt;JUMPER&lt;/b&gt;</description>
-<gates>
-<gate name="A" symbol="J1" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="JP1">
-<connects>
-<connect gate="A" pin="1" pad="1"/>
-<connect gate="A" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:15455/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="POPULARITY" value="15" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="AUX Lib">
 <packages>
 <package name="TEENSY-3.6_ONLY_HOLES">
@@ -19466,7 +19389,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <part name="SUPPLY6" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="TRACO" library="master_library" deviceset="TRACO-TSR-1-2450" device=""/>
 <part name="LM2940" library="master_library" deviceset="LM2940" device="LM" package3d_urn="urn:adsk.eagle:package:8814566/1"/>
-<part name="JP1" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP1Q" device="" package3d_urn="urn:adsk.eagle:package:15455/1"/>
 <part name="SUPPLY12" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY13" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY18" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
@@ -19676,10 +19598,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <attribute name="VALUE" x="-78.9432" y="180.6702" size="1.778" layer="96" rot="SR0"/>
 </instance>
 <instance part="LM2940" gate="G$1" x="-85.09" y="108.966" smashed="yes" rot="R90"/>
-<instance part="JP1" gate="A" x="137.16" y="154.94" smashed="yes" rot="R90">
-<attribute name="NAME" x="131.8768" y="157.1752" size="1.778" layer="95" rot="SR0"/>
-<attribute name="VALUE" x="142.24" y="159.385" size="1.778" layer="96" rot="R180"/>
-</instance>
 <instance part="SUPPLY12" gate="GND" x="48.26" y="13.285" smashed="yes"/>
 <instance part="SUPPLY13" gate="GND" x="63.5" y="10.745" smashed="yes"/>
 <instance part="SUPPLY18" gate="GND" x="86.36" y="13.285" smashed="yes"/>
@@ -20002,13 +19920,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="81.28" y1="190.5" x2="78.74" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="µC_GND" class="0">
-<segment>
-<pinref part="JP1" gate="A" pin="2"/>
-<wire x1="129.54" y1="154.94" x2="127" y2="154.94" width="0.1524" layer="91"/>
-<label x="114.3" y="154.94" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="5V_REG" class="0">
 <segment>
 <pinref part="TRACO" gate="TSR-1-2450$1" pin="OUT"/>
@@ -20124,11 +20035,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <pinref part="TRACO" gate="TSR-1-2450$1" pin="GND"/>
 <wire x1="-73.66" y1="170.18" x2="-73.66" y2="167.64" width="0.1524" layer="91"/>
 <label x="-76.2" y="165.1" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="A" pin="1"/>
-<wire x1="144.78" y1="154.94" x2="147.32" y2="154.94" width="0.1524" layer="91"/>
-<label x="147.32" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
@@ -20430,6 +20336,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="-38.1" y1="22.86" x2="-38.1" y2="15.24" width="0.1524" layer="91"/>
 <label x="-38.1" y="12.7" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="4"/>
+<wire x1="121.92" y1="101.6" x2="127" y2="101.6" width="0.1524" layer="91"/>
+<label x="127" y="101.6" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="MOSI_SW" class="0">
 <segment>
@@ -20494,6 +20405,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <pinref part="U$3" gate="G$1" pin="D6/PWM"/>
 <wire x1="264.16" y1="167.64" x2="256.54" y2="167.64" width="0.1524" layer="91"/>
 <label x="251.46" y="167.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="VIPER" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="3"/>
+<wire x1="101.6" y1="101.6" x2="96.52" y2="101.6" width="0.1524" layer="91"/>
+<label x="91.44" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

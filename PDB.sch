@@ -17168,6 +17168,23 @@ Source: &lt;a href="http://www.recom-international.com/pdf/Innoline/R-78xx-1.0.p
 <text x="0" y="4.895" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-4.895" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
 </package>
+<package name="JST-B05B-AUTO">
+<pad name="P$1" x="-2.54" y="0" drill="1.2" shape="long" rot="R90"/>
+<pad name="P$2" x="0" y="0" drill="1.2" shape="long" rot="R90"/>
+<pad name="P$3" x="2.54" y="0" drill="1.2" shape="long" rot="R90"/>
+<pad name="P$4" x="5.08" y="0" drill="1.2" shape="long" rot="R90"/>
+<pad name="P$5" x="7.62" y="0" drill="1.2" shape="long" rot="R90"/>
+<wire x1="-6.35" y1="3.81" x2="-6.35" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-2.54" x2="11.43" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="11.43" y1="-2.54" x2="11.43" y2="3.81" width="0.127" layer="21"/>
+<polygon width="0.127" layer="21">
+<vertex x="-2.54" y="-2.54"/>
+<vertex x="-2.54" y="-1.27"/>
+<vertex x="7.62" y="-1.27"/>
+<vertex x="7.62" y="-2.54"/>
+</polygon>
+<wire x1="-6.35" y1="3.81" x2="11.43" y2="3.81" width="0.127" layer="21"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="0204V" urn="urn:adsk.eagle:package:2273925/1" type="box">
@@ -17774,27 +17791,19 @@ Source: VISHAY wscwsn.pdf</description>
 </packages3d>
 <symbols>
 <symbol name="8-PIN-CONNECTOR">
-<wire x1="-22.86" y1="15.24" x2="-22.86" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="-22.86" y1="-25.4" x2="5.08" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-25.4" x2="5.08" y2="15.24" width="0.254" layer="94"/>
-<wire x1="5.08" y1="15.24" x2="-22.86" y2="15.24" width="0.254" layer="94"/>
-<pin name="P$1" x="7.62" y="12.7" length="middle" rot="R180"/>
-<pin name="P$2" x="7.62" y="7.62" length="middle" rot="R180"/>
-<pin name="P$3" x="7.62" y="2.54" length="middle" rot="R180"/>
-<pin name="P$4" x="7.62" y="-2.54" length="middle" rot="R180"/>
-<pin name="P$5" x="7.62" y="-7.62" length="middle" rot="R180"/>
-<pin name="P$6" x="7.62" y="-12.7" length="middle" rot="R180"/>
-<pin name="P$7" x="7.62" y="-17.78" length="middle" rot="R180"/>
-<pin name="P$8" x="7.62" y="-22.86" length="middle" rot="R180"/>
-<text x="-4.572" y="16.256" size="1.27" layer="94">&gt;NAME</text>
-<text x="-16.002" y="11.938" size="1.6764" layer="94">&gt;P1NAME</text>
-<text x="-16.002" y="6.35" size="1.6764" layer="94">&gt;P2NAME</text>
-<text x="-15.494" y="1.778" size="1.6764" layer="94">&gt;P3NAME</text>
-<text x="-15.494" y="-3.556" size="1.6764" layer="94">&gt;P4NAME</text>
-<text x="-14.986" y="-8.382" size="1.6764" layer="94">&gt;P5NAME</text>
-<text x="-14.986" y="-13.462" size="1.6764" layer="94">&gt;P6NAME</text>
-<text x="-14.732" y="-18.796" size="1.6764" layer="94">&gt;P7NAME</text>
-<text x="-14.732" y="-23.368" size="1.6764" layer="94">&gt;P8NAME</text>
+<wire x1="-5.08" y1="10.16" x2="-5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-12.7" x2="7.62" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-12.7" x2="7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="10.16" x2="-5.08" y2="10.16" width="0.254" layer="94"/>
+<pin name="P$1" x="10.16" y="7.62" length="middle" rot="R180"/>
+<pin name="P$2" x="10.16" y="5.08" length="middle" rot="R180"/>
+<pin name="P$3" x="10.16" y="2.54" length="middle" rot="R180"/>
+<pin name="P$4" x="10.16" y="0" length="middle" rot="R180"/>
+<pin name="P$5" x="10.16" y="-2.54" length="middle" rot="R180"/>
+<pin name="P$6" x="10.16" y="-5.08" length="middle" rot="R180"/>
+<pin name="P$7" x="10.16" y="-7.62" length="middle" rot="R180"/>
+<pin name="P$8" x="10.16" y="-10.16" length="middle" rot="R180"/>
+<text x="-2.032" y="11.176" size="1.27" layer="94">&gt;NAME</text>
 </symbol>
 <symbol name="R-US-1">
 <wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
@@ -18957,6 +18966,18 @@ Mating cable assembly: Sparkfun &lt;a href="http://www.sparkfun.com/products/991
 <connect gate="G$1" pin="3" pad="P3"/>
 <connect gate="G$1" pin="4" pad="P4"/>
 <connect gate="G$1" pin="5" pad="P5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="AUTOMOTIVE" package="JST-B05B-AUTO">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+<connect gate="G$1" pin="3" pad="P$3"/>
+<connect gate="G$1" pin="4" pad="P$4"/>
+<connect gate="G$1" pin="5" pad="P$5"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -20139,19 +20160,19 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 </segment>
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$6"/>
-<wire x1="221.765" y1="101.6" x2="223.52" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="224.305" y1="109.22" x2="223.52" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="224.79" y1="101.6" x2="223.52" y2="101.6" width="0.1524" layer="91"/>
 <label x="224.536" y="101.854" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$7"/>
-<wire x1="221.765" y1="96.52" x2="223.52" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="224.305" y1="106.68" x2="223.52" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="224.536" y1="96.52" x2="223.52" y2="96.52" width="0.1524" layer="91"/>
 <label x="224.79" y="96.52" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$8"/>
-<wire x1="221.765" y1="91.44" x2="225.044" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="224.305" y1="104.14" x2="225.044" y2="91.44" width="0.1524" layer="91"/>
 <label x="225.044" y="91.694" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -20168,7 +20189,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <net name="HAZ_L_SIG" class="0">
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$2"/>
-<wire x1="221.765" y1="121.92" x2="224.305" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="224.305" y1="119.38" x2="224.305" y2="121.92" width="0.1524" layer="91"/>
 <label x="224.305" y="121.92" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -20180,7 +20201,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <net name="BRAKE_SIG" class="0">
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$1"/>
-<wire x1="221.765" y1="127" x2="224.305" y2="127" width="0.1524" layer="91"/>
+<wire x1="224.305" y1="121.92" x2="224.305" y2="127" width="0.1524" layer="91"/>
 <label x="224.305" y="127" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -20192,7 +20213,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <net name="HEADLIGHT_SIG" class="0">
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$4"/>
-<wire x1="221.765" y1="111.76" x2="224.305" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="224.305" y1="114.3" x2="224.305" y2="111.76" width="0.1524" layer="91"/>
 <label x="224.305" y="111.76" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -20204,7 +20225,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <net name="REARLIGHT_SIG" class="0">
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$5"/>
-<wire x1="221.765" y1="106.68" x2="224.305" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="224.305" y1="111.76" x2="224.305" y2="106.68" width="0.1524" layer="91"/>
 <label x="224.305" y="106.68" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -20356,7 +20377,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <net name="HAZ_R_SIG" class="0">
 <segment>
 <pinref part="LIGHTS" gate="G$1" pin="P$3"/>
-<wire x1="221.765" y1="116.84" x2="224.305" y2="116.84" width="0.1524" layer="91"/>
 <label x="224.305" y="116.84" size="1.778" layer="95"/>
 </segment>
 <segment>

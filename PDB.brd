@@ -162,21 +162,6 @@
 </layers>
 <board>
 <plain>
-<wire x1="130.3613875" y1="-11.928015625" x2="130.75645" y2="135.749278125" width="0" layer="20"/>
-<wire x1="130.75645" y1="135.749278125" x2="130.8" y2="135.792828125" width="0" layer="20"/>
-<wire x1="130.8" y1="135.792828125" x2="130.8" y2="150.6" width="0" layer="20"/>
-<wire x1="130.8" y1="150.6" x2="123.665928125" y2="150.570725" width="0" layer="20"/>
-<wire x1="123.665928125" y1="150.570725" x2="110.536653125" y2="150.3" width="0" layer="20"/>
-<wire x1="110.536653125" y1="150.3" x2="17.9" y2="150.5" width="0" layer="20"/>
-<wire x1="17.9" y1="150.5" x2="12" y2="150.31475" width="0" layer="20"/>
-<wire x1="12" y1="150.31475" x2="4.38525" y2="150.1" width="0" layer="20"/>
-<wire x1="4.38525" y1="150.1" x2="4.2" y2="143.2" width="0" layer="20"/>
-<wire x1="4.2" y1="143.2" x2="4.346496875" y2="136.691890625" width="0" layer="20"/>
-<wire x1="4.346496875" y1="136.691890625" x2="4.1724375" y2="53.904" width="0" layer="20"/>
-<wire x1="4.1724375" y1="53.904" x2="4" y2="-11.1" width="0" layer="20"/>
-<wire x1="4" y1="-11.1" x2="14.380440625" y2="-11.1" width="0" layer="20"/>
-<wire x1="14.380440625" y1="-11.1" x2="13.96286875" y2="-11.017571875" width="0" layer="20"/>
-<wire x1="13.96286875" y1="-11.017571875" x2="130.3613875" y2="-11.928015625" width="0" layer="20"/>
 <text x="37.404" y="111.766" size="0.8128" layer="25">GND</text>
 <text x="9.862" y="111.718" size="1.27" layer="25">Blink Rate</text>
 <text x="7.187" y="98.241" size="2.54" layer="25" font="vector" ratio="13" rot="R90">SEM 2019</text>
@@ -4084,11 +4069,13 @@
 <rectangle x1="109.75" y1="61.99" x2="111.23" y2="62.01" layer="25"/>
 <rectangle x1="114.93" y1="61.99" x2="122.21" y2="62.01" layer="25"/>
 <rectangle x1="126.79" y1="61.99" x2="127.17" y2="62.01" layer="25"/>
-<hole x="8.2" y="129.56" drill="2"/>
+<hole x="9.9" y="144.06" drill="2"/>
 <hole x="10.46" y="-3.38" drill="2"/>
-<hole x="126.18" y="129.54" drill="2"/>
+<hole x="125.18" y="142.14" drill="2"/>
 <hole x="124.78" y="-4.04" drill="2"/>
-<text x="6.64" y="116.46" size="1.4224" layer="25" rot="R90">Louis Smidt</text>
+<text x="11.14" y="116.16" size="1.4224" layer="25" rot="R90">Originally Created by: Louis Smidt
+Modified by: Boyuan Deng
+With guidance from KJ Dix</text>
 <text x="10.66" y="87.66" size="0.8128" layer="25">Power</text>
 <text x="61.42" y="106.66" size="1.016" layer="25" rot="R180">CLK</text>
 <text x="72.397" y="104.22" size="1.016" layer="25">Off</text>
@@ -4099,6 +4086,13 @@
 <text x="121" y="95.6" size="0.8128" layer="25">10uF</text>
 <text x="20.9" y="116.1" size="0.8128" layer="25">47uF</text>
 <text x="111.6" y="99.9" size="0.8128" layer="25" rot="R90">0.47uF</text>
+<wire x1="1.9" y1="150.8" x2="1.9" y2="150.7" width="0.1524" layer="20"/>
+<wire x1="1.9" y1="150.7" x2="1.9" y2="-12.1" width="0.1524" layer="20"/>
+<wire x1="1.9" y1="-12.1" x2="132" y2="-12.1" width="0.1524" layer="20"/>
+<wire x1="132" y1="-12.1" x2="132.2" y2="-12.3" width="0.1524" layer="20"/>
+<wire x1="132.2" y1="-12.3" x2="132.2" y2="154.6" width="0.1524" layer="20"/>
+<wire x1="132.2" y1="154.6" x2="1.9" y2="154.6" width="0.1524" layer="20"/>
+<wire x1="1.9" y1="154.6" x2="1.9" y2="150.8" width="0.1524" layer="20"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -7341,8 +7335,7 @@ design rules under a new name.</description>
 <vertex x="109.8" y="129.4"/>
 <vertex x="109.8" y="110.8"/>
 <vertex x="125.8" y="110.8"/>
-<vertex x="125.8" y="129.4"/>
-<vertex x="126.6" y="130.2"/>
+<vertex x="125.8" y="130.2"/>
 <vertex x="109.8" y="130.2"/>
 </polygon>
 <wire x1="123.883" y1="111.854" x2="119.5" y2="111.9" width="0.6096" layer="1"/>
@@ -7745,6 +7738,10 @@ design rules under a new name.</description>
 </board>
 </drawing>
 <compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
 <note version="8.2" severity="warning">
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)

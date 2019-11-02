@@ -19948,6 +19948,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="200.66" y1="114.808" x2="200.66" y2="116.84" width="0.1524" layer="91"/>
 <label x="187.96" y="116.84" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J7" gate="G$1" pin="1"/>
+<wire x1="-25.4" y1="109.22" x2="-33.02" y2="109.22" width="0.1524" layer="91"/>
+<label x="-38.1" y="109.22" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="10V_REG" class="0">
 <segment>
@@ -20208,13 +20213,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="81.28" y1="177.8" x2="78.74" y2="177.8" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="5V" class="0">
-<segment>
-<pinref part="J7" gate="G$1" pin="1"/>
-<wire x1="-25.4" y1="109.22" x2="-33.02" y2="109.22" width="0.1524" layer="91"/>
-<label x="-38.1" y="109.22" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="PEDAL_SNS" class="0">
 <segment>
 <pinref part="J7" gate="G$1" pin="2"/>
@@ -20349,28 +20347,28 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 </net>
 <net name="MOSI_SW" class="0">
 <segment>
-<pinref part="J8" gate="G$1" pin="3"/>
-<wire x1="206.502" y1="112.268" x2="200.66" y2="112.268" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="112.268" x2="200.66" y2="114.3" width="0.1524" layer="91"/>
-<label x="187.96" y="114.3" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U$3" gate="G$1" pin="D3/SCL2/CAN0TX/PWM"/>
 <wire x1="147.32" y1="38.1" x2="139.7" y2="38.1" width="0.1524" layer="91"/>
 <label x="134.62" y="38.1" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J8" gate="G$1" pin="7"/>
+<wire x1="206.502" y1="107.188" x2="200.66" y2="107.188" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="107.188" x2="200.66" y2="109.22" width="0.1524" layer="91"/>
+<label x="187.96" y="109.22" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="CLK_SW" class="0">
-<segment>
-<pinref part="J8" gate="G$1" pin="4"/>
-<wire x1="226.822" y1="112.268" x2="233.68" y2="112.268" width="0.1524" layer="91"/>
-<wire x1="233.68" y1="112.268" x2="233.68" y2="114.3" width="0.1524" layer="91"/>
-<label x="233.68" y="114.3" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="D2/PWM"/>
 <wire x1="147.32" y1="40.64" x2="139.7" y2="40.64" width="0.1524" layer="91"/>
 <label x="134.62" y="40.64" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="J8" gate="G$1" pin="6"/>
+<wire x1="226.822" y1="109.728" x2="233.68" y2="109.728" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="109.728" x2="233.68" y2="111.76" width="0.1524" layer="91"/>
+<label x="233.68" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DC" class="0">
@@ -20388,28 +20386,28 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 </net>
 <net name="CS" class="0">
 <segment>
-<pinref part="J8" gate="G$1" pin="6"/>
-<wire x1="226.822" y1="109.728" x2="233.68" y2="109.728" width="0.1524" layer="91"/>
-<wire x1="233.68" y1="109.728" x2="233.68" y2="111.76" width="0.1524" layer="91"/>
-<label x="233.68" y="111.76" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U$3" gate="G$1" pin="D4/SDA2/CAN0RX/PWM"/>
 <wire x1="147.32" y1="35.56" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
 <label x="134.62" y="35.56" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J8" gate="G$1" pin="4"/>
+<wire x1="226.822" y1="112.268" x2="233.68" y2="112.268" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="112.268" x2="233.68" y2="114.3" width="0.1524" layer="91"/>
+<label x="233.68" y="114.3" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="RESET" class="0">
-<segment>
-<pinref part="J8" gate="G$1" pin="7"/>
-<wire x1="206.502" y1="107.188" x2="200.66" y2="107.188" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="107.188" x2="200.66" y2="109.22" width="0.1524" layer="91"/>
-<label x="187.96" y="109.22" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="D6/PWM"/>
 <wire x1="147.32" y1="30.48" x2="139.7" y2="30.48" width="0.1524" layer="91"/>
 <label x="134.62" y="30.48" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="J8" gate="G$1" pin="3"/>
+<wire x1="206.502" y1="112.268" x2="200.66" y2="112.268" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="112.268" x2="200.66" y2="114.3" width="0.1524" layer="91"/>
+<label x="187.96" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VIPER" class="0">

@@ -20332,6 +20332,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="43.18" y1="101.6" x2="43.18" y2="93.98" width="0.1524" layer="91"/>
 <label x="43.18" y="91.44" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="3"/>
+<wire x1="101.6" y1="101.6" x2="96.52" y2="101.6" width="0.1524" layer="91"/>
+<label x="91.44" y="101.6" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="HORN" class="0">
 <segment>
@@ -20408,13 +20413,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="206.502" y1="112.268" x2="200.66" y2="112.268" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="112.268" x2="200.66" y2="114.3" width="0.1524" layer="91"/>
 <label x="187.96" y="114.3" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="VIPER" class="0">
-<segment>
-<pinref part="J2" gate="G$1" pin="3"/>
-<wire x1="101.6" y1="101.6" x2="96.52" y2="101.6" width="0.1524" layer="91"/>
-<label x="91.44" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

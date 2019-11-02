@@ -7673,6 +7673,15 @@ design rules under a new name.</description>
 </signal>
 <signal name="WIPER">
 <contactref element="U$6" pad="SWB"/>
+<contactref element="J2" pad="3"/>
+<wire x1="23.59" y1="81.28" x2="37.1251" y2="94.8151" width="1" layer="16"/>
+<wire x1="37.1251" y1="94.8151" x2="38.654775" y2="94.8151" width="1" layer="16"/>
+<wire x1="38.654775" y1="94.8151" x2="41.9" y2="98.060325" width="1" layer="16"/>
+<wire x1="41.9" y1="98.060325" x2="41.9" y2="110.4" width="1" layer="16"/>
+<wire x1="82.23543125" y1="142.7" x2="82.58" y2="142.7" width="1" layer="16"/>
+<wire x1="80.68303125" y1="144.2524" x2="82.23543125" y2="142.7" width="1" layer="16"/>
+<wire x1="41.9" y1="110.4" x2="75.7524" y2="144.2524" width="1" layer="16"/>
+<wire x1="75.7524" y1="144.2524" x2="80.68303125" y2="144.2524" width="1" layer="16"/>
 </signal>
 <signal name="HORN">
 <contactref element="U$5" pad="SWB"/>
@@ -7723,9 +7732,6 @@ design rules under a new name.</description>
 <wire x1="111.1669" y1="27.1689" x2="112.4952" y2="28.4972" width="0.6096" layer="1"/>
 <wire x1="108.14160625" y1="23.7" x2="111.1669" y2="26.72529375" width="0.6096" layer="1"/>
 <wire x1="58.88" y1="23.7" x2="108.14160625" y2="23.7" width="0.6096" layer="1"/>
-</signal>
-<signal name="VIPER">
-<contactref element="J2" pad="3"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

@@ -19787,7 +19787,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 </segment>
 <segment>
 <pinref part="R8" gate="G$1" pin="1"/>
-<label x="-55.525228125" y="27.963965625" size="1.778" layer="95"/>
+<label x="-58.065228125" y="27.963965625" size="1.778" layer="95"/>
 <wire x1="-55.88" y1="28.0358625" x2="-54.85544375" y2="27.963965625" width="0.1524" layer="91"/>
 </segment>
 </net>

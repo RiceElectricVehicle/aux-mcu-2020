@@ -19413,6 +19413,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <part name="U$5" library="AUX Lib" deviceset="TE_CON_OJE-SH-112DM,095\" device=""/>
 <part name="U$6" library="AUX Lib" deviceset="TE_CON_OJE-SH-112DM,095\" device=""/>
 <part name="J8" library="AUX Lib" deviceset="SS-6488-NF-A431" device=""/>
+<part name="R2" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="3K"/>
+<part name="R3" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="5K"/>
+<part name="R10" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="3K"/>
+<part name="R11" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="5K"/>
 </parts>
 <sheets>
 <sheet>
@@ -19672,9 +19676,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <attribute name="NAME" x="21.59" y="180.34" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="21.59" y="177.8" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="J7" gate="G$1" x="-25.4" y="109.22" smashed="yes">
-<attribute name="NAME" x="-8.89" y="116.84" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="-8.89" y="114.3" size="1.778" layer="96" align="center-left"/>
+<instance part="J7" gate="G$1" x="-25.4" y="129.54" smashed="yes">
+<attribute name="NAME" x="-8.89" y="137.16" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="-8.89" y="134.62" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="U$5" gate="G$1" x="71.12" y="106.68" smashed="yes">
 <attribute name="NAME" x="67.31" y="109.855" size="1.778" layer="95" rot="R90"/>
@@ -19685,6 +19689,22 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <instance part="J8" gate="G$1" x="206.502" y="114.808" smashed="yes">
 <attribute name="NAME" x="223.012" y="122.428" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="223.012" y="119.888" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="R2" gate="G$1" x="-2.54" y="109.22" smashed="yes">
+<attribute name="NAME" x="-6.35" y="110.7186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-6.35" y="105.918" size="1.778" layer="96"/>
+</instance>
+<instance part="R3" gate="G$1" x="-27.94" y="109.22" smashed="yes">
+<attribute name="NAME" x="-31.75" y="110.7186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-31.75" y="105.918" size="1.778" layer="96"/>
+</instance>
+<instance part="R10" gate="G$1" x="-2.54" y="96.52" smashed="yes">
+<attribute name="NAME" x="-6.35" y="98.0186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-6.35" y="93.218" size="1.778" layer="96"/>
+</instance>
+<instance part="R11" gate="G$1" x="-27.94" y="96.52" smashed="yes">
+<attribute name="NAME" x="-31.75" y="98.0186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-31.75" y="93.218" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -19801,6 +19821,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <pinref part="U$6" gate="G$1" pin="CLA"/>
 <wire x1="35.56" y1="114.3" x2="35.56" y2="119.38" width="0.1524" layer="91"/>
 <label x="33.02" y="119.38" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="2.54" y1="109.22" x2="7.62" y2="109.22" width="0.1524" layer="91"/>
+<label x="7.62" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="H7" class="0">
@@ -19950,8 +19975,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 </segment>
 <segment>
 <pinref part="J7" gate="G$1" pin="1"/>
-<wire x1="-25.4" y1="109.22" x2="-33.02" y2="109.22" width="0.1524" layer="91"/>
-<label x="-38.1" y="109.22" size="1.778" layer="95"/>
+<wire x1="-25.4" y1="129.54" x2="-33.02" y2="129.54" width="0.1524" layer="91"/>
+<label x="-38.1" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="10V_REG" class="0">
@@ -20101,8 +20126,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 </segment>
 <segment>
 <pinref part="J7" gate="G$1" pin="3"/>
-<wire x1="-25.4" y1="106.68" x2="-33.02" y2="106.68" width="0.1524" layer="91"/>
-<label x="-38.1" y="106.68" size="1.778" layer="95"/>
+<wire x1="-25.4" y1="127" x2="-33.02" y2="127" width="0.1524" layer="91"/>
+<label x="-38.1" y="127" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="6"/>
@@ -20134,6 +20159,16 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="226.822" y1="114.808" x2="233.68" y2="114.808" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="114.808" x2="233.68" y2="116.84" width="0.1524" layer="91"/>
 <label x="233.68" y="116.84" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="-33.02" y1="109.22" x2="-38.1" y2="109.22" width="0.1524" layer="91"/>
+<label x="-38.1" y="109.22" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="-33.02" y1="96.52" x2="-38.1" y2="96.52" width="0.1524" layer="91"/>
+<label x="-38.1" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -20216,8 +20251,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <net name="PEDAL_SNS" class="0">
 <segment>
 <pinref part="J7" gate="G$1" pin="2"/>
-<wire x1="-5.08" y1="109.22" x2="5.08" y2="109.22" width="0.1524" layer="91"/>
-<label x="-2.54" y="106.68" size="1.778" layer="95"/>
+<wire x1="-5.08" y1="129.54" x2="5.08" y2="129.54" width="0.1524" layer="91"/>
+<label x="-2.54" y="127" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="D39/A20"/>
@@ -20325,6 +20360,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="66.04" y1="114.3" x2="66.04" y2="119.38" width="0.1524" layer="91"/>
 <label x="63.5" y="119.38" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="2.54" y1="96.52" x2="7.62" y2="96.52" width="0.1524" layer="91"/>
+<label x="7.62" y="96.52" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="WIPER" class="0">
 <segment>
@@ -20413,6 +20453,38 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/B03B-HCMKS.pd
 <wire x1="206.502" y1="112.268" x2="200.66" y2="112.268" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="112.268" x2="200.66" y2="114.3" width="0.1524" layer="91"/>
 <label x="187.96" y="114.3" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="WIPER_IN" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="D23/A9/TOUCH/PWM"/>
+<wire x1="218.44" y1="40.64" x2="226.06" y2="40.64" width="0.1524" layer="91"/>
+<label x="226.06" y="40.64" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="-7.62" y1="109.22" x2="-15.24" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="109.22" x2="-22.86" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="109.22" x2="-15.24" y2="101.6" width="0.1524" layer="91"/>
+<junction x="-15.24" y="109.22"/>
+<label x="-15.24" y="101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="HORN_IN" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="D22/A8/TOUCH/PWM"/>
+<wire x1="218.44" y1="38.1" x2="226.06" y2="38.1" width="0.1524" layer="91"/>
+<label x="226.06" y="38.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="-7.62" y1="96.52" x2="-15.24" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="96.52" x2="-22.86" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="96.52" x2="-15.24" y2="88.9" width="0.1524" layer="91"/>
+<junction x="-15.24" y="96.52"/>
+<label x="-15.24" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

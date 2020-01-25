@@ -4,7 +4,7 @@
 #include <U8g2lib.h>
 
 OLED::OLED()
-    : screen_object(U8G2_R0, /* cs=*/ 10, /* dc=*/ 9, /* reset=*/ 8)
+    : screen_object(U8G2_R0, /* clock=*/ 14, /* data=*/ 3, /* cs=*/ 4, /* dc=*/ 5, /* reset=*/ 6)
 {
   screen_height = 0;
   screen_width = 0;

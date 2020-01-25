@@ -19460,7 +19460,7 @@ general purpose rectifier, 1 A</description>
 <part name="BACK" library="switch" library_urn="urn:adsk.eagle:library:380" deviceset="M9040P" device="" package3d_urn="urn:adsk.eagle:package:27676/1"/>
 <part name="R18" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
 <part name="R19" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
-<part name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="4.7K"/>
+<part name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47K"/>
 <part name="R21" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47K"/>
 <part name="SUPPLY21" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY22" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
@@ -19504,8 +19504,8 @@ general purpose rectifier, 1 A</description>
 <part name="J8" library="AUX Lib" deviceset="SS-6488-NF-A431" device=""/>
 <part name="D1" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:43336/1"/>
 <part name="D2" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:43336/1"/>
-<part name="R2" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="4K"/>
-<part name="R3" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="4K"/>
+<part name="R2" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="4.7K"/>
+<part name="R3" library="master_library" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:2274104/1" value="4.7K"/>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
 </parts>

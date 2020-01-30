@@ -30,16 +30,76 @@ volatile unsigned int message_A_out;
 volatile unsigned int message_A_in;
 volatile unsigned int message_B_out;
 volatile unsigned int message_B_in;
+
+// Record of break state
 volatile bool brk;
 
+// PID loops
+double pid_inA, pid_outA, pid_setA;
+double pid_inB, pid_outB, pid_setB;
+PID pidA(&pid_inA, &pid_outA, &pid_setA, 1, 1, 0, REVERSE);
+PID pidB(&pid_inB, &pid_outB, &pid_setB, 1, 1, 0, REVERSE);
+
+// The timer to switch on and off
+IntervalTimer clock_timer;
+
+// Record for blinking the lights
+int light_state = HIGH;
+
+void blink();
+void brake_isr();
+Data create_data(unsigned int point, bool brake, bool direction, bool error);
+Data decode_data(unsigned int message);
+unsigned int encode_data(Data current_data);
+
 void setup() {
-  // put your setup code here, to run once:
+  // Set pinmode
+  pinMode(CLK, OUTPUT);
+
+  // Begin transimitting to serial
+  Serial.begin(9600);
+
+  // Start timer
+  clock_timer.begin(blink, 500000);
+
+  // disable interrupts
+  cli();
+  // attachInterrupt(FAULT_IN, fault_catch, CHANGE);
+  attachInterrupt(BRAKE_SNS, brake_isr, CHANGE);
+  // enable interrups
+  sei();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  Serial.println(light_state);
 }
 
+/**
+ * Blink the headlights
+ */
+void blink()
+{
+  digitalWrite(CLK, light_state);
+  if (light_state == HIGH)
+  {
+    light_state = LOW;
+  } else
+  {
+    light_state = HIGH;
+  }
+}
+
+void brake_isr() {
+  if (brk)
+    brk = false;
+  else
+    brk = true;
+}
+
+/**
+ * Create a "Data" structure with information needed
+ */
 Data create_data(unsigned int point, bool brake, bool direction, bool error)
 {
   Data current_data;
@@ -51,6 +111,9 @@ Data create_data(unsigned int point, bool brake, bool direction, bool error)
   return current_data;
 }
 
+/**
+ * Take in a encoded int, decode it as "Data" structure
+ */
 Data decode_data(unsigned int message)
 {
   unsigned int point = message & 0xFFF; // Take 12 LSB
@@ -61,6 +124,9 @@ Data decode_data(unsigned int message)
   return current_data;
 }
 
+/**
+ * Take in a "Data" structure, encode it as a int
+ */
 unsigned int encode_data(Data current_data)
 {
   // Set the point

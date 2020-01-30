@@ -16,6 +16,9 @@
 #define CS 4
 #define DC 5
 #define RESET 6
+#define CLK_SW 2
+
+// Clock signal
 #define CLK 14
 
 // Pedal

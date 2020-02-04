@@ -4,6 +4,7 @@
 #include <OLED.h>
 #include <PID_v1.h>
 #include <pins.h>
+#include <SPI.h>
 
 // Clearing confusion in dirction
 #define FORWARD true;
@@ -47,6 +48,7 @@ IntervalTimer clock_timer;
 int light_state = HIGH;
 
 void blink();
+void pidSetup();
 void brake_isr();
 Data create_data(unsigned int point, bool brake, bool direction, bool error);
 Data decode_data(unsigned int message);
@@ -68,11 +70,32 @@ void setup() {
   attachInterrupt(BRAKE_SNS, brake_isr, CHANGE);
   // enable interrups
   sei();
+
+  // Start the SPI
+  SPI.begin();
+  SPI1.begin();
+
+  // Start PID setup
+  pidSetup();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(light_state);
+  // Serial.println(light_state);
+  if (brk)
+  {
+    unsigned int reset = 1 << 13;
+    SPI.transfer16(reset);
+    SPI1.transfer16(reset);
+  } else
+  {
+    message_A_in = SPI.transfer16(message_A_out);
+    message_B_in = SPI.transfer16(message_B_out);
+    Data motor_A = decode_data(message_A_in);
+    Data motor_B = decode_data(message_B_in);
+    pid_inA = motor_A.point;
+    pid_inB = motor_B.point;
+  }
 }
 
 /**
@@ -80,6 +103,7 @@ void loop() {
  */
 void blink()
 {
+  Serial.println("Blinking");
   digitalWrite(CLK, light_state);
   if (light_state == HIGH)
   {
@@ -88,8 +112,20 @@ void blink()
   {
     light_state = HIGH;
   }
+  Serial.println(light_state);
 }
 
+void pidSetup() {
+  pidA.SetOutputLimits(0, 4096);
+  pidB.SetOutputLimits(0, 4096);
+  pidA.SetMode(AUTOMATIC);
+  pidB.SetMode(AUTOMATIC);
+  Serial.println("Setup done");
+}
+
+/**
+ * If brake change is detected, let it be false
+ */
 void brake_isr() {
   if (brk)
     brk = false;

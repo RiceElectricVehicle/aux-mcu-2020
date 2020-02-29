@@ -22,6 +22,8 @@ typedef struct Data {
 } Data;
 
 OLED OLED_screen;
+volatile double speed;
+
 /**
 * Rules for messages below:
 * 4MSB is for operands, 12 lower bits are for setpoints
@@ -35,6 +37,10 @@ volatile unsigned int message_B_in;
 // Record of break state
 volatile bool brk;
 
+// Pedal sensing
+volatile int pedal_adc;
+volatile double pedal_power;
+
 // PID loops
 double pid_inA, pid_outA, pid_setA;
 double pid_inB, pid_outB, pid_setB;
@@ -47,12 +53,16 @@ IntervalTimer clock_timer;
 // Record for blinking the lights
 int light_state = HIGH;
 
+// For testing usage
+const bool testing = true;
+
 void blink();
 void pidSetup();
 void brake_isr();
 Data create_data(unsigned int point, bool brake, bool direction, bool error);
 Data decode_data(unsigned int message);
 unsigned int encode_data(Data current_data);
+void print_data(const char* message, Data data);
 
 void setup() {
   // Set pinmode
@@ -77,24 +87,57 @@ void setup() {
 
   // Start PID setup
   pidSetup();
+
+  // Set up OLED screen
+  OLED_screen.init(&speed);
+
+  if (testing)
+  {
+    message_A_out = 43690;
+    message_B_out = 43690;
+  }
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
+  pedal_adc = analogRead(PEDAL_SNS);
+  pedal_power = map(pedal_adc, 550, 900, 0, 4095);
+
   // Serial.println(light_state);
   if (brk)
   {
     unsigned int reset = 1 << 13;
     SPI.transfer16(reset);
     SPI1.transfer16(reset);
+    OLED_screen.display_breaking();
   } else
   {
     message_A_in = SPI.transfer16(message_A_out);
-    message_B_in = SPI.transfer16(message_B_out);
+    message_B_in = SPI1.transfer16(message_B_out);
     Data motor_A = decode_data(message_A_in);
     Data motor_B = decode_data(message_B_in);
+    if (testing)
+    {
+      print_data("MotorA Input -------", motor_A);
+      print_data("MotorB Input -------", motor_B);
+    }
     pid_inA = motor_A.point;
     pid_inB = motor_B.point;
+    pid_setA = pedal_power;
+    pid_setB = pedal_power;
+    pidA.Compute();
+    pidB.Compute();
+    Data send_A = create_data(pid_outA, motor_A.brake, motor_A.direction, motor_A.error);
+    Data send_B = create_data(pid_outB, motor_B.brake, motor_B.direction, motor_B.error);
+    if (!testing)
+    {
+      message_A_out = encode_data(send_A);
+      message_B_out = encode_data(send_B);
+    }
+    SPI.transfer16(message_A_out);
+    SPI1.transfer16(message_B_out);
+    speed = (pid_outA + pid_outB) / 2;
+    OLED_screen.display_speed();
   }
 }
 
@@ -103,7 +146,7 @@ void loop() {
  */
 void blink()
 {
-  Serial.println("Blinking");
+  // Serial.println("Blinking");
   digitalWrite(CLK, light_state);
   if (light_state == HIGH)
   {
@@ -112,7 +155,7 @@ void blink()
   {
     light_state = HIGH;
   }
-  Serial.println(light_state);
+  // Serial.println(light_state);
 }
 
 void pidSetup() {
@@ -187,4 +230,17 @@ unsigned int encode_data(Data current_data)
   }
 
   return message;
+}
+
+void print_data(const char* message, Data data)
+{
+  Serial.println(message);
+  Serial.print("Set point: ");
+  Serial.println(data.point);
+  Serial.print("Brake: ");
+  Serial.println(data.brake ? "true" : "false");
+  Serial.print("Direction: ");
+  Serial.println(data.direction ? "forward" : "backward");
+  Serial.print("Error: ");
+  Serial.println(data.error ? "true" : "false");
 }

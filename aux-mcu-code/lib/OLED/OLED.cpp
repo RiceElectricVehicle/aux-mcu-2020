@@ -90,9 +90,7 @@ void OLED::display_speed()
   Display current speed of the car in terms of mile per hour
   */
   screen_object.setFont(u8g2_font_inr49_mf);
-  int now_rpm = *rpm_address;
-  // Calculte the current speed of the car from rpm data
-  int now_speed = (int)(now_rpm * wheel_gear_ratio * speed_constant);
+  int now_speed = *rpm_address;
   // Haven't thought of a better way to get string length. It is a placeholder.
   string_width = screen_object.getStrWidth("60 mph");
   OLED::set_cursors();

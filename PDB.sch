@@ -20287,11 +20287,6 @@ general purpose rectifier, 1 A</description>
 <label x="175.26" y="119.38" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J3" gate="G$1" pin="6"/>
-<wire x1="170.18" y1="116.84" x2="175.26" y2="116.84" width="0.1524" layer="91"/>
-<label x="175.26" y="116.84" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="J3" gate="G$1" pin="8"/>
 <wire x1="170.18" y1="114.3" x2="175.26" y2="114.3" width="0.1524" layer="91"/>
 <label x="175.26" y="114.3" size="1.778" layer="95"/>
@@ -20300,11 +20295,6 @@ general purpose rectifier, 1 A</description>
 <pinref part="J4" gate="G$1" pin="4"/>
 <wire x1="170.18" y1="101.6" x2="175.26" y2="101.6" width="0.1524" layer="91"/>
 <label x="175.26" y="101.6" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="J4" gate="G$1" pin="6"/>
-<wire x1="170.18" y1="99.06" x2="175.26" y2="99.06" width="0.1524" layer="91"/>
-<label x="175.26" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="J4" gate="G$1" pin="8"/>
@@ -20611,6 +20601,20 @@ general purpose rectifier, 1 A</description>
 <wire x1="-45.72" y1="106.68" x2="-45.72" y2="101.6" width="0.1524" layer="91"/>
 <junction x="-45.72" y="106.68"/>
 <pinref part="R2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="CS_A" class="0">
+<segment>
+<pinref part="J3" gate="G$1" pin="6"/>
+<wire x1="170.18" y1="116.84" x2="175.26" y2="116.84" width="0.1524" layer="91"/>
+<label x="175.26" y="116.84" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="CS_B" class="0">
+<segment>
+<pinref part="J4" gate="G$1" pin="6"/>
+<wire x1="170.18" y1="99.06" x2="175.26" y2="99.06" width="0.1524" layer="91"/>
+<label x="175.26" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

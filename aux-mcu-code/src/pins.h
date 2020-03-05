@@ -4,11 +4,13 @@
 // Motor controller A
 #define MOSI_A 0
 #define MISO_A 1
+#define SS_A 31
 #define CLK_A 32
 
 // Motor controller B
 #define MOSI_B 11
 #define MISO_B 12
+#define SS_B 15
 #define CLK_B 13
 
 // Screen SPI

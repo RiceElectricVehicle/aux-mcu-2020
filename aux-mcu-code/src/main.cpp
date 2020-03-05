@@ -30,9 +30,9 @@ volatile double speed;
 * 4MSB are arranged as below: Brake, Direction, Error, Empty
 */
 volatile unsigned int message_A_out;
-volatile unsigned int message_A_in;
+volatile unsigned int message_A_in = 0;
 volatile unsigned int message_B_out;
-volatile unsigned int message_B_in;
+volatile unsigned int message_B_in = 0;
 
 // Record of break state
 volatile bool brk;
@@ -67,6 +67,8 @@ void print_data(const char* message, Data data);
 void setup() {
   // Set pinmode
   pinMode(CLK, OUTPUT);
+  pinMode(SS_A, OUTPUT);
+  pinMode(SS_B, OUTPUT);
 
   // Begin transimitting to serial
   Serial.begin(9600);
@@ -93,8 +95,8 @@ void setup() {
 
   if (testing)
   {
-    message_A_out = 43690;
-    message_B_out = 43690;
+    message_A_out = 2000;
+    message_B_out = 2000;
   }
 }
 
@@ -112,12 +114,18 @@ void loop() {
     OLED_screen.display_breaking();
   } else
   {
+    digitalWrite(SS_A, LOW);
+    digitalWrite(SS_B, LOW);
     message_A_in = SPI.transfer16(message_A_out);
     message_B_in = SPI1.transfer16(message_B_out);
+    digitalWrite(SS_A, HIGH);
+    digitalWrite(SS_B, HIGH);
     Data motor_A = decode_data(message_A_in);
     Data motor_B = decode_data(message_B_in);
     if (testing)
     {
+      Serial.println(message_A_in);
+      Serial.println(message_B_in);
       print_data("MotorA Input -------", motor_A);
       print_data("MotorB Input -------", motor_B);
     }
@@ -134,10 +142,19 @@ void loop() {
       message_A_out = encode_data(send_A);
       message_B_out = encode_data(send_B);
     }
+    digitalWrite(SS_A, LOW);
+    digitalWrite(SS_B, LOW);
     SPI.transfer16(message_A_out);
     SPI1.transfer16(message_B_out);
+    digitalWrite(SS_A, HIGH);
+    digitalWrite(SS_B, HIGH);
     speed = (pid_outA + pid_outB) / 2;
     OLED_screen.display_speed();
+    if (testing)
+    {
+      message_A_in = 0;
+      message_B_in = 0;
+    }
   }
 }
 

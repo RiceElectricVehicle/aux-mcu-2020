@@ -35,7 +35,14 @@ volatile unsigned int message_B_out;
 volatile unsigned int message_B_in = 0;
 
 // Record of break state
-volatile bool brk;
+volatile bool brk = false;
+
+volatile bool direction = FORWARD;
+
+volatile bool error = false;
+
+volatile bool error_A;
+volatile bool error_B;
 
 // Pedal sensing
 volatile int pedal_adc;
@@ -50,6 +57,8 @@ PID pidB(&pid_inB, &pid_outB, &pid_setB, 1, 1, 0, REVERSE);
 // The timer to switch on and off
 IntervalTimer clock_timer;
 
+IntervalTimer SPI_timer;
+
 // Record for blinking the lights
 int light_state = HIGH;
 
@@ -59,6 +68,7 @@ const bool testing = true;
 void blink();
 void pidSetup();
 void brake_isr();
+void get_and_send();
 Data create_data(unsigned int point, bool brake, bool direction, bool error);
 Data decode_data(unsigned int message);
 unsigned int encode_data(Data current_data);
@@ -73,15 +83,17 @@ void setup() {
   // Begin transimitting to serial
   Serial.begin(9600);
 
-  // Start timer
-  clock_timer.begin(blink, 500000);
-
   // disable interrupts
   cli();
   // attachInterrupt(FAULT_IN, fault_catch, CHANGE);
   attachInterrupt(BRAKE_SNS, brake_isr, CHANGE);
+  SPI_timer.begin(get_and_send, 250000);
   // enable interrups
   sei();
+
+  // Start timer
+  clock_timer.begin(blink, 500000);
+  clock_timer.priority(200);
 
   // Start the SPI
   SPI.begin();
@@ -92,69 +104,18 @@ void setup() {
 
   // Set up OLED screen
   OLED_screen.init(&speed);
-
-  if (testing)
-  {
-    message_A_out = 2000;
-    message_B_out = 2000;
-  }
 }
 
 void loop() {
-
-  pedal_adc = analogRead(PEDAL_SNS);
-  pedal_power = map(pedal_adc, 550, 900, 0, 4095);
-
-  // Serial.println(light_state);
-  if (brk)
+  Data from_A = decode_data(message_A_in);
+  Data from_B = decode_data(message_B_in);
+  error_A = from_A.error;
+  error_B = from_B.error;
+  error = error_A || error_B;
+  if (testing)
   {
-    unsigned int reset = 1 << 13;
-    SPI.transfer16(reset);
-    SPI1.transfer16(reset);
-    OLED_screen.display_breaking();
-  } else
-  {
-    digitalWrite(SS_A, LOW);
-    digitalWrite(SS_B, LOW);
-    message_A_in = SPI.transfer16(message_A_out);
-    message_B_in = SPI1.transfer16(message_B_out);
-    digitalWrite(SS_A, HIGH);
-    digitalWrite(SS_B, HIGH);
-    Data motor_A = decode_data(message_A_in);
-    Data motor_B = decode_data(message_B_in);
-    if (testing)
-    {
-      Serial.println(message_A_in);
-      Serial.println(message_B_in);
-      print_data("MotorA Input -------", motor_A);
-      print_data("MotorB Input -------", motor_B);
-    }
-    pid_inA = motor_A.point;
-    pid_inB = motor_B.point;
-    pid_setA = pedal_power;
-    pid_setB = pedal_power;
-    pidA.Compute();
-    pidB.Compute();
-    Data send_A = create_data(pid_outA, motor_A.brake, motor_A.direction, motor_A.error);
-    Data send_B = create_data(pid_outB, motor_B.brake, motor_B.direction, motor_B.error);
-    if (!testing)
-    {
-      message_A_out = encode_data(send_A);
-      message_B_out = encode_data(send_B);
-    }
-    digitalWrite(SS_A, LOW);
-    digitalWrite(SS_B, LOW);
-    SPI.transfer16(message_A_out);
-    SPI1.transfer16(message_B_out);
-    digitalWrite(SS_A, HIGH);
-    digitalWrite(SS_B, HIGH);
-    speed = (pid_outA + pid_outB) / 2;
-    OLED_screen.display_speed();
-    if (testing)
-    {
-      message_A_in = 0;
-      message_B_in = 0;
-    }
+    print_data("Motor A -------", from_A);
+    print_data("Motor B -------", from_B);
   }
 }
 
@@ -187,10 +148,53 @@ void pidSetup() {
  * If brake change is detected, let it be false
  */
 void brake_isr() {
+  cli();
   if (brk)
+  {
     brk = false;
+    sei();
+  }
   else
+  {
     brk = true;
+    message_A_out = 1 << 15;
+    message_B_out = 1 << 15;
+    digitalWrite(SS_A, LOW);
+    digitalWrite(SS_B, LOW);
+    message_A_in = SPI.transfer16(message_A_out);
+    message_B_in = SPI1.transfer16(message_B_out);
+    digitalWrite(SS_A, HIGH);
+    digitalWrite(SS_B, HIGH);
+    sei();
+  }
+}
+
+void get_and_send()
+{
+        pedal_adc = analogRead(PEDAL_SNS);
+        pedal_power = map(pedal_adc, 550, 900, 0, 4095);
+        if (testing)
+        {
+          pedal_power = 2000;
+          direction = BACKWARD;
+        }
+        cli();
+        Data send_A = create_data(pedal_power, brk, direction, error);
+        Data send_B = create_data(pedal_power, brk, direction, error);
+        message_A_out = encode_data(send_A);
+        message_B_out = encode_data(send_B);
+        // if (testing)
+        // {
+        //   print_data("Sending A -------", send_A);
+        //   print_data("Sending B -------", send_B);
+        // }
+        digitalWrite(SS_A, LOW);
+        digitalWrite(SS_B, LOW);
+        message_A_in = SPI.transfer16(message_A_out);
+        message_B_in = SPI1.transfer16(message_B_out);
+        digitalWrite(SS_A, HIGH);
+        digitalWrite(SS_B, HIGH);
+        sei();
 }
 
 /**

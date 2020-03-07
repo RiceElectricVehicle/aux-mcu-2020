@@ -49,10 +49,10 @@ volatile int pedal_adc;
 volatile double pedal_power;
 
 // PID loops
-double pid_inA, pid_outA, pid_setA;
-double pid_inB, pid_outB, pid_setB;
-PID pidA(&pid_inA, &pid_outA, &pid_setA, 1, 1, 0, REVERSE);
-PID pidB(&pid_inB, &pid_outB, &pid_setB, 1, 1, 0, REVERSE);
+// double pid_inA, pid_outA, pid_setA;
+// double pid_inB, pid_outB, pid_setB;
+// PID pidA(&pid_inA, &pid_outA, &pid_setA, 1, 1, 0, REVERSE);
+// PID pidB(&pid_inB, &pid_outB, &pid_setB, 1, 1, 0, REVERSE);
 
 // The timer to switch on and off
 IntervalTimer clock_timer;
@@ -66,7 +66,7 @@ int light_state = HIGH;
 const bool testing = true;
 
 void blink();
-void pidSetup();
+// void pidSetup();
 void brake_isr();
 void get_and_send();
 Data create_data(unsigned int point, bool brake, bool direction, bool error);
@@ -82,6 +82,7 @@ void setup() {
 
   // Begin transimitting to serial
   Serial.begin(9600);
+  Serial.println("Starting");
 
   // disable interrupts
   cli();
@@ -100,7 +101,7 @@ void setup() {
   SPI1.begin();
 
   // Start PID setup
-  pidSetup();
+  // pidSetup();
 
   // Set up OLED screen
   OLED_screen.init(&speed);
@@ -117,6 +118,7 @@ void loop() {
     print_data("Motor A -------", from_A);
     print_data("Motor B -------", from_B);
   }
+  delay(100);
 }
 
 /**
@@ -136,13 +138,13 @@ void blink()
   // Serial.println(light_state);
 }
 
-void pidSetup() {
-  pidA.SetOutputLimits(0, 4096);
-  pidB.SetOutputLimits(0, 4096);
-  pidA.SetMode(AUTOMATIC);
-  pidB.SetMode(AUTOMATIC);
-  Serial.println("Setup done");
-}
+// void pidSetup() {
+//   pidA.SetOutputLimits(0, 4096);
+//   pidB.SetOutputLimits(0, 4096);
+//   pidA.SetMode(AUTOMATIC);
+//   pidB.SetMode(AUTOMATIC);
+//   Serial.println("Setup done");
+// }
 
 /**
  * If brake change is detected, let it be false
@@ -171,12 +173,16 @@ void brake_isr() {
 
 void get_and_send()
 {
-        pedal_adc = analogRead(PEDAL_SNS);
-        pedal_power = map(pedal_adc, 550, 900, 0, 4095);
         if (testing)
         {
-          pedal_power = 2000;
+          pedal_power = 3000;
           direction = BACKWARD;
+          Serial.println("Sending data --------------------------");
+        }
+        else
+        {
+          pedal_adc = analogRead(PEDAL_SNS);
+          pedal_power = map(pedal_adc, 550, 900, 0, 4095);
         }
         cli();
         Data send_A = create_data(pedal_power, brk, direction, error);

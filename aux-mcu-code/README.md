@@ -138,3 +138,13 @@ Brake|Direction|Error|Blank|12 bits of set point
 What does 1100000000001111 mean?
 
 Answer: Braking, forward, no errors and a setpoint of 31.
+
+## Compile Instructions
+
+The whole folder (aux_mcu-code) serves as a valid PlatformIO project. You should install the following PlatformIO plugins in your IDE:
+
+1. platformio-ide
+2. platformio-debugger
+3. platformio-terminal
+
+Currently, the tested IDE are VS Code and Atom. If in your IDE, the
